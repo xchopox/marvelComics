@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 //angular.module('starter', ['ionic'])
 
-angular.module('marvelComics', ['ionic'])
+angular.module('marvelComics', ['ionic', 'marvelComics.controllers', 'marvelComics.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -26,7 +26,8 @@ angular.module('marvelComics', ['ionic'])
 	$stateProvider
 		.state('search', {
 			url:'/search',
-			templateUrl: 'templates/comic-list.html'
+			templateUrl: 'templates/comic-list.html',
+			controller: 'ComicListCtrl'
 		});
 
 	$urlRouterProvider.otherwise('/search');
