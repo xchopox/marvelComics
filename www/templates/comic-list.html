@@ -8,4 +8,30 @@
 		<button class="button button-clear" ng-click="search()">Search</button>
 	</div>
 
+  <ion-content class="has-header has-subheader">
+<!--     <ion-list>
+      <ion-item ng-repeat="comic in comics" type="item-text-wrap" class="item-avatar" href="#">
+      <p>comic name</p>
+      </ion-item>
+    </ion-list> -->
+
+<div class="list card">
+
+  <div class="item item-avatar">
+    <h2>{{heroName}}</h2>
+    <p>{{attributionText}}</p>
+  </div>
+
+  <div class="item item-image">
+   <img src="{{heroImg}}">
+  </div>
+
+  <div class="item item-body">
+    <p>{{heroDescription}}
+    </p>
+  </div>
+
+</div>
+    
+  </ion-content>
 </ion-view>
