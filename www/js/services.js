@@ -39,6 +39,19 @@ angular.module('marvelComics.services', ['ngResource'])
 	};
 
 
+	var comicByID = function(comicId){
+		var def = $q.defer();
+		var url = baseUrl + 'public/comics/' + comicId + '?&ts='+ momentTs + '&apikey='+ publicKey + '&hash='+ momentHash;
+
+	console.log('the url is '+ url);        
+
+	$http.get(url).success(def.resolve).error(def.reject);
+	return def.promise;
+	
+	};
+
+
 	return {findByQuery: findByQuery,
-			comicsByID: comicsByID};
+			comicsByID: comicsByID, 
+			comicByID: comicByID};
 })

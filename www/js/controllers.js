@@ -43,24 +43,27 @@ angular.module('marvelComics.controllers',['marvelComics.services'])
 
        	Character.comicsByID(characterId).then(function(result){
 				var data = result.data.results;
-				
 				$scope.comics = data;
+				console.log(data);
+			});
 
-				// $scope.heroName = data.name;
-				// $scope.heroImg = data.thumbnail.path+'.'+data.thumbnail.extension;
-				// $scope.attributionText = result.attributionText;
+	})
 
-				// var desc = data.description;
 
-				// if(desc.length <=0){
-				// 	desc = "No description for this character >:C";
-				// }
+       .controller('ComicDetailCtrl', function($scope, $stateParams, Character){
 
-				// $scope.heroDescription = desc;
-
-				// console.log('El nombre es: '+ data.name);
-				// console.log('Descripcion: '+ data.description);
-
+	var comicId = $stateParams.comicID;
+	
+	console.log("el id del personaje es: "+ comicId);
+	 
+       	Character.comicByID(comicId).then(function(result){
+				var data = result.data.results[0];
+				
+				$scope.comicTitle = data.title;
+				$scope.diamondCode = data.diamondCode
+				$scope.comicImg = data.thumbnail.path+'.'+data.thumbnail.extension;
+				$scope.comicDesc = data.description; 
+				
 				console.log(data);
 			});
 

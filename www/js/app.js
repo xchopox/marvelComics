@@ -34,6 +34,14 @@ angular.module('marvelComics', ['ionic', 'marvelComics.controllers', 'marvelComi
 			url:'/comics/:characterID/:characterName',
 			templateUrl:'templates/comic-list.html',
 			controller: 'ComicListCtrl'
+		})
+
+
+
+		.state('comicDetail',{
+			url:'/comicDetail/:comicID',
+			templateUrl: 'templates/comic-detail.html',
+			controller: 'ComicDetailCtrl'
 		});
 
 	$urlRouterProvider.otherwise('/search');
