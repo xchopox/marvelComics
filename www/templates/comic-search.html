@@ -1,44 +1,49 @@
 <ion-view title="Marvel Comics Search">
 	<div class="bar bar-subheader item-input-inset">
 		<label class="item-input-wrapper">
-		  <i class="icon ion-ios7-search placeholder-icon"></i>
+		  <i class="icon ion-ios-search"></i>
 		  <input id="searchText" type="search" placeholder="Search Character: e.g. Hulk" ng-model="searchText" autocorrect="off">
-		  <button class="button button-clear" ng-click="clearSearch()">X</button>
 		</label>
-		<button class="button button-clear" ng-click="search()">Search</button>
+    <p><button class="button button-clear" ng-click="clearTheSearch()"> Clear </button></p>
+		<p><button class="button button-clear" ng-click="search()"> Search </button></p>
 	</div>
 
   <ion-content class="has-header has-subheader">
-<!--     <ion-list>
-      <ion-item ng-repeat="comic in comics" type="item-text-wrap" class="item-avatar" href="#">
-      <p>comic name</p>
-      </ion-item>
-    </ion-list> -->
 
-<div class="list card">
+    <div id="loadingCard" ng-show="showloadingCard" class="list card">
+      <div class="item item-body">
+        <p>Realizando la petición al servidor <ion-spinner icon="dots"></ion-spinner></p>
+      </div>
+    </div>
 
-  <div class="item item-avatar">
-    <h2>{{heroName}}</h2>
-    <p>{{attributionText}}</p>
-  </div>
+    <div id="noResultCard" ng-show="shownoResultCard" class="list card">
+      <div class="item item-body">
+        <p>No se encontraron resultados en el servidor :(</p>
+      </div>
+    </div>
 
-  <div class="item item-image">
-   <img src="{{heroImg}}">
-  </div>
+    <div id="resultCard" ng-show="showresultCard" class="list card">
+      <div class="item item-avatar">
+        <h2>{{heroName}}</h2>
+        <p>{{attributionText}}</p>
+      </div>
 
-  <div class="item item-body">
-    <p>{{heroDescription}}
-    </p>
-  </div>
+      <div class="item item-image">
+        <img src="{{heroImg}}">
+      </div>
+
+      <div class="item item-body">
+        <p>{{heroDescription}}
+        </p>
+      </div>
   
-  <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#/comics/{{cId}}/{{heroName}}">
-      <i class="icon ion-ios-list-outline"></i>
-      Ver Comics
-    </a>
-  </div>
-
-</div>
-    
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#/comics/{{cId}}/{{heroName}}">
+          <i class="icon ion-ios-list-outline"></i>
+          Ver Comics
+        </a>
+      </div>
+    </div>
+  
   </ion-content>
 </ion-view>
