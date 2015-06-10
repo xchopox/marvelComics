@@ -35,11 +35,17 @@ angular.module('marvelComics.controllers',['marvelComics.services'])
        .controller('ComicListCtrl', function($scope, $stateParams, Character){
 
 	var characterId = $stateParams.characterID; 
+	var characterName = $stateParams.characterName;
 	
 	console.log("el id del personaje es: "+characterId);
+	
+	$scope.heroName = characterName; 
 
        	Character.comicsByID(characterId).then(function(result){
-				var data = result.data.results[0];
+				var data = result.data.results;
+				
+				$scope.comics = data;
+
 				// $scope.heroName = data.name;
 				// $scope.heroImg = data.thumbnail.path+'.'+data.thumbnail.extension;
 				// $scope.attributionText = result.attributionText;

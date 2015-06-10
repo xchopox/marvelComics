@@ -31,7 +31,7 @@ angular.module('marvelComics', ['ionic', 'marvelComics.controllers', 'marvelComi
 		})
 
 		.state('comics',{
-			url:'/comics/:characterID',
+			url:'/comics/:characterID/:characterName',
 			templateUrl:'templates/comic-list.html',
 			controller: 'ComicListCtrl'
 		});
