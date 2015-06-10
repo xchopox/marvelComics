@@ -26,7 +26,13 @@ angular.module('marvelComics', ['ionic', 'marvelComics.controllers', 'marvelComi
 	$stateProvider
 		.state('search', {
 			url:'/search',
-			templateUrl: 'templates/comic-list.html',
+			templateUrl: 'templates/comic-search.html',
+			controller: 'ComicSearchCtrl'
+		})
+
+		.state('comics',{
+			url:'/comics/:characterID',
+			templateUrl:'templates/comic-list.html',
 			controller: 'ComicListCtrl'
 		});
 
